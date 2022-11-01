@@ -19,5 +19,7 @@ namespace Faragau_Cristina_Lab_02.Data
         public DbSet<Faragau_Cristina_Lab_02.Models.Publisher> Publisher { get; set; }
 
         public DbSet<Faragau_Cristina_Lab_02.Models.Author> Authors { get; set; }
+
+        public DbSet<Faragau_Cristina_Lab_02.Models.Category> Category { get; set; }
     }
 }

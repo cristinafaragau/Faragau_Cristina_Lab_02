@@ -4,6 +4,7 @@ using Faragau_Cristina_Lab_02.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Faragau_Cristina_Lab_02.Migrations
 {
     [DbContext(typeof(Faragau_Cristina_Lab_02Context))]
-    partial class Faragau_Cristina_Lab_02ContextModelSnapshot : ModelSnapshot
+    [Migration("20221025115702_BookCategory")]
+    partial class BookCategory
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
