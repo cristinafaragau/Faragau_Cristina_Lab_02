@@ -99,6 +99,32 @@ namespace Faragau_Cristina_Lab_02.Migrations
                     b.ToTable("BookCategory");
                 });
 
+            modelBuilder.Entity("Faragau_Cristina_Lab_02.Models.Borrowing", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
+
+                    b.Property<int?>("BookID")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("MemberID")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("ReturnDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("BookID");
+
+                    b.HasIndex("MemberID");
+
+                    b.ToTable("Borrowing");
+                });
+
             modelBuilder.Entity("Faragau_Cristina_Lab_02.Models.Category", b =>
                 {
                     b.Property<int>("ID")
@@ -114,6 +140,35 @@ namespace Faragau_Cristina_Lab_02.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("Category");
+                });
+
+            modelBuilder.Entity("Faragau_Cristina_Lab_02.Models.Member", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
+
+                    b.Property<string>("Adress")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FirstName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Phone")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Member");
                 });
 
             modelBuilder.Entity("Faragau_Cristina_Lab_02.Models.Publisher", b =>
@@ -167,6 +222,21 @@ namespace Faragau_Cristina_Lab_02.Migrations
                     b.Navigation("Category");
                 });
 
+            modelBuilder.Entity("Faragau_Cristina_Lab_02.Models.Borrowing", b =>
+                {
+                    b.HasOne("Faragau_Cristina_Lab_02.Models.Book", "Book")
+                        .WithMany()
+                        .HasForeignKey("BookID");
+
+                    b.HasOne("Faragau_Cristina_Lab_02.Models.Member", "Member")
+                        .WithMany("Borrowings")
+                        .HasForeignKey("MemberID");
+
+                    b.Navigation("Book");
+
+                    b.Navigation("Member");
+                });
+
             modelBuilder.Entity("Faragau_Cristina_Lab_02.Models.Author", b =>
                 {
                     b.Navigation("Books");
@@ -180,6 +250,11 @@ namespace Faragau_Cristina_Lab_02.Migrations
             modelBuilder.Entity("Faragau_Cristina_Lab_02.Models.Category", b =>
                 {
                     b.Navigation("BookCategories");
+                });
+
+            modelBuilder.Entity("Faragau_Cristina_Lab_02.Models.Member", b =>
+                {
+                    b.Navigation("Borrowings");
                 });
 
             modelBuilder.Entity("Faragau_Cristina_Lab_02.Models.Publisher", b =>

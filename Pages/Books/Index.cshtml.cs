@@ -62,7 +62,7 @@ namespace Faragau_Cristina_Lab_02.Pages.Books
                     BookD.Books = BookD.Books.OrderByDescending(s => s.Title);
                     break;
                 case "author_desc":
-                    BookD.Books = BookD.Books.OrderByDescending(s => s.Author.FullName);
+                    BookD.Books = BookD.Books.OrderByDescending(s => s.Author.FirstName);
                     break;
             }
         }

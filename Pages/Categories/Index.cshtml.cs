@@ -25,7 +25,7 @@ namespace Faragau_Cristina_Lab_02.Pages.Categories
         public CategoryIndexData CategoryData { get; set; }
         public int CategoryID { get; set; }
         public int BookCategoryID { get; set; }
-        public async Task OnGetAsync(int? id, int? bookID)
+        public async Task OnGetAsync(int? id, int? bookID, int? categoryID)
         {
             CategoryData = new CategoryIndexData();
             CategoryData.Categories = await _context.Category
@@ -38,7 +38,7 @@ namespace Faragau_Cristina_Lab_02.Pages.Categories
                 CategoryID = id.Value;
                 Category category = CategoryData.Categories
                 .Where(i => i.ID == id.Value).Single();
-                CategoryData.Books = category.BookCategories;
+                //CategoryData.Books = category.BookCategories;
             }
         }
     }

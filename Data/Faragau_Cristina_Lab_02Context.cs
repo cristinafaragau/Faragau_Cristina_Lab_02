@@ -21,5 +21,9 @@ namespace Faragau_Cristina_Lab_02.Data
         public DbSet<Faragau_Cristina_Lab_02.Models.Author> Authors { get; set; }
 
         public DbSet<Faragau_Cristina_Lab_02.Models.Category> Category { get; set; }
+
+        public DbSet<Faragau_Cristina_Lab_02.Models.Member> Member { get; set; }
+
+        public DbSet<Faragau_Cristina_Lab_02.Models.Borrowing> Borrowing { get; set; }
     }
 }
