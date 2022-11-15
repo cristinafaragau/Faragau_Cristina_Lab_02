@@ -44,10 +44,7 @@ namespace Faragau_Cristina_Lab_02.Pages.Books
                 .ToListAsync();
             if (!String.IsNullOrEmpty(searchString))
             {
-                BookD.Books = BookD.Books.Where(s => s.Author.FirstName .Contains(searchString)
-
-               || s.Author.LastName.Contains(searchString)
-               || s.Title.Contains(searchString));
+                BookD.Books = BookD.Books.Where(s => s.Author.FirstName .Contains(searchString)|| s.Author.LastName.Contains(searchString)|| s.Title.Contains(searchString));
             }
             if (id != null)
             {

@@ -38,7 +38,7 @@ namespace Faragau_Cristina_Lab_02.Pages.Categories
                 CategoryID = id.Value;
                 Category category = CategoryData.Categories
                 .Where(i => i.ID == id.Value).Single();
-                //CategoryData.Books = category.BookCategories;
+                //CategoryData.BookCategories = category.BookCategories;
             }
         }
     }
